@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>기호 2번 신윤영 | 공약 자세히 보기</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy-deep:#0c1a33;
+    --navy:#14284d;
+    --navy-mid:#1e3a68;
+    --sky:#eaf4fb;
+    --sky-line:#cfe4f5;
+    --blue:#3f7fd9;
+    --gold:#f5d76e;
+    --gold-deep:#e0b93f;
+    --cream:#fffaf0;
+    --ink:#182338;
+    --ink-soft:#4a5568;
+    --white:#ffffff;
+    --radius:18px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--sky);
+    color:var(--ink);
+    font-family:'Noto Sans KR',sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.display{
+    font-family:'Noto Sans KR',sans-serif;
+  }
+  a{color:inherit;}
+  img{max-width:100%;display:block;}
+
+  /* ---------- NAV ---------- */
+  .nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(12,26,51,0.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid rgba(245,215,110,0.25);
+  }
+  .nav-inner{
+    max-width:920px; margin:0 auto;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:10px 18px;
+  }
+  .nav-brand{
+    display:flex; align-items:center; gap:10px;
+    color:var(--gold); font-weight:900; font-size:14px;
+    white-space:nowrap;
+  }
+  .nav-brand .badge{
+    width:26px;height:26px;border-radius:50%;
+    background:var(--gold); color:var(--navy-deep);
+    display:flex;align-items:center;justify-content:center;
+    font-size:13px; font-weight:900; font-family:'Noto Sans KR',sans-serif;
+  }
+  .nav-links{
+    display:flex; gap:4px; overflow-x:auto; scrollbar-width:none;
+  }
+  .nav-links::-webkit-scrollbar{display:none;}
+  .nav-links a{
+    color:#dce8f7; text-decoration:none; font-size:12.5px; font-weight:500;
+    padding:8px 10px; border-radius:999px; white-space:nowrap;
+    transition:background .2s, color .2s;
+  }
+  .nav-links a:hover{ background:rgba(245,215,110,0.15); color:var(--gold); }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    background:radial-gradient(circle at 78% 12%, var(--navy-mid), var(--navy) 45%, var(--navy-deep) 100%);
+    color:var(--white);
+    padding:64px 20px 84px;
+    overflow:hidden;
+    text-align:center;
+  }
+  .hero::before{
+    content:"";
+    position:absolute; inset:0;
+    background-image:
+      radial-gradient(1px 1px at 20% 30%, rgba(255,255,255,.35) 0, transparent 40%),
+      radial-gradient(1px 1px at 70% 60%, rgba(255,255,255,.25) 0, transparent 40%),
+      radial-gradient(1px 1px at 85% 20%, rgba(255,255,255,.3) 0, transparent 40%),
+      radial-gradient(1px 1px at 40% 80%, rgba(255,255,255,.2) 0, transparent 40%);
+    pointer-events:none;
+  }
+  .pin{
+    display:inline-flex; align-items:center; gap:8px;
+    background:rgba(245,215,110,0.12);
+    border:1px solid rgba(245,215,110,0.4);
+    color:var(--gold);
+    font-size:12.5px; font-weight:700;
+    padding:6px 16px; border-radius:999px;
+    margin-bottom:26px;
+    letter-spacing:.04em;
+  }
+  .hero-number{
+    font-family:'Noto Sans KR',sans-serif;
+    font-size:clamp(120px,32vw,190px);
+    font-weight:700;
+    line-height:0.8;
+    color:var(--gold);
+    text-shadow:0 0 60px rgba(245,215,110,0.35);
+    margin:0;
+  }
+  .hero-number sub{
+    font-size:0.22em;
+    font-weight:700;
+    color:var(--white);
+    vertical-align:baseline;
+    margin-left:2px;
+  }
+  .hero-name{
+    font-size:clamp(34px,8vw,54px);
+    font-weight:700;
+    letter-spacing:0.14em;
+    margin:6px 0 22px;
+  }
+  .hero-slogan{
+    max-width:520px; margin:0 auto;
+    background:rgba(255,255,255,0.06);
+    border:1px solid rgba(255,255,255,0.15);
+    border-radius:999px;
+    padding:14px 26px;
+    font-size:15px;
+    color:#eaf1fb;
+  }
+  .hero-cta{
+    margin-top:36px;
+    display:flex; gap:10px; justify-content:center; flex-wrap:wrap;
+  }
+  .btn{
+    display:inline-block;
+    padding:12px 22px;
+    border-radius:999px;
+    font-weight:700;
+    font-size:14px;
+    text-decoration:none;
+    cursor:pointer;
+    border:none;
+    transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .btn:hover{ transform:translateY(-2px); }
+  .btn-gold{ background:var(--gold); color:var(--navy-deep); box-shadow:0 8px 20px rgba(245,215,110,0.25);}
+  .btn-outline{ background:transparent; color:var(--white); border:1px solid rgba(255,255,255,0.4); }
+
+  /* wave divider */
+  .wave{ display:block; width:100%; margin-top:-2px; }
+
+  /* ---------- SECTION SHELL ---------- */
+  section.policy{
+    max-width:820px; margin:0 auto;
+    padding:54px 20px 10px;
+    scroll-margin-top:70px;
+  }
+  .sec-head{
+    display:flex; align-items:flex-start; gap:16px;
+    margin-bottom:26px;
+  }
+  .sec-coin{
+    flex:none;
+    width:56px;height:56px;border-radius:50%;
+    background:linear-gradient(150deg,var(--gold),var(--gold-deep));
+    color:var(--navy-deep);
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Noto Sans KR',sans-serif; font-weight:700; font-size:24px;
+    box-shadow:0 6px 14px rgba(224,185,63,0.35), inset 0 0 0 3px rgba(255,255,255,0.35);
+  }
+  .sec-title h2{
+    margin:0 0 4px; font-size:23px; color:var(--navy-deep); font-weight:700;
+  }
+  .sec-title p{
+    margin:0; color:var(--ink-soft); font-size:13.5px;
+  }
+
+  /* ---------- PLEDGE CARDS (details/summary) ---------- */
+  .card{
+    background:var(--white);
+    border:1px solid var(--sky-line);
+    border-radius:var(--radius);
+    margin-bottom:14px;
+    overflow:hidden;
+    box-shadow:0 2px 10px rgba(20,40,77,0.04);
+  }
+  .card summary{
+    list-style:none;
+    cursor:pointer;
+    padding:18px 20px;
+    display:flex; align-items:center; gap:14px;
+    font-weight:700; font-size:15.5px; color:var(--navy);
+    position:relative;
+  }
+  .card summary::-webkit-details-marker{ display:none; }
+  .card summary .icon{
+    flex:none; width:38px;height:38px; border-radius:12px;
+    background:var(--sky); display:flex;align-items:center;justify-content:center;
+    font-size:18px;
+  }
+  .card summary .chev{
+    margin-left:auto; color:var(--blue); font-size:13px;
+    transition:transform .25s ease;
+  }
+  .card[open] summary .chev{ transform:rotate(180deg); }
+  .card .body{
+    padding:0 20px 20px 72px;
+    color:var(--ink-soft);
+    font-size:14px;
+  }
+  .card .body ul{ margin:0; padding-left:18px; }
+  .card .body li{ margin-bottom:7px; }
+  .card .body li:last-child{ margin-bottom:0; }
+
+  /* guinness section special */
+  .guinness-lead{
+    background:linear-gradient(135deg,var(--navy),var(--navy-mid));
+    color:#eaf1fb;
+    border-radius:var(--radius);
+    padding:22px 22px;
+    font-size:14.5px;
+    margin-bottom:16px;
+  }
+  .guinness-lead b{ color:var(--gold); }
+  .example-chip-row{
+    display:flex; flex-wrap:wrap; gap:8px; margin:14px 0 4px;
+  }
+  .chip{
+    background:var(--sky); border:1px solid var(--sky-line);
+    color:var(--navy); font-size:12.5px; font-weight:500;
+    padding:7px 12px; border-radius:999px;
+  }
+  .benefit-grid{
+    display:grid; grid-template-columns:repeat(2,1fr); gap:10px;
+    margin-top:14px;
+  }
+  .benefit{
+    background:var(--white); border:1px solid var(--sky-line); border-radius:14px;
+    padding:14px; font-size:13px; color:var(--navy); font-weight:500;
+    display:flex; align-items:center; gap:10px;
+  }
+  .benefit .em{ font-size:20px; }
+
+  /* ---------- DIVIDER QUOTE ---------- */
+  .quote-strip{
+    max-width:820px; margin:50px auto 0; padding:0 20px;
+    text-align:center;
+  }
+  .quote-strip p{
+    font-family:'Noto Sans KR',sans-serif;
+    font-size:19px; color:var(--navy);
+    border-top:1px solid var(--sky-line);
+    border-bottom:1px solid var(--sky-line);
+    padding:22px 10px;
+  }
+
+  /* ---------- QUESTION BOARD ---------- */
+  .qa{
+    max-width:820px; margin:0 auto; padding:56px 20px 30px;
+    scroll-margin-top:70px;
+  }
+  .qa-box{
+    background:var(--white);
+    border-radius:var(--radius);
+    border:1px solid var(--sky-line);
+    padding:26px 22px;
+    box-shadow:0 4px 18px rgba(20,40,77,0.06);
+  }
+  .qa-box label{
+    display:block; font-size:12.5px; font-weight:700; color:var(--navy);
+    margin:14px 0 6px;
+  }
+  .qa-box input, .qa-box textarea{
+    width:100%; border:1px solid var(--sky-line); border-radius:12px;
+    padding:11px 13px; font-family:inherit; font-size:14px; color:var(--ink);
+    background:var(--sky);
+    resize:vertical;
+  }
+  .qa-box textarea{ min-height:90px; }
+  .qa-box input:focus, .qa-box textarea:focus{
+    outline:2px solid var(--blue); outline-offset:1px; background:var(--white);
+  }
+  .qa-submit{
+    margin-top:18px;
+    width:100%;
+    background:var(--navy);
+    color:var(--white);
+    padding:13px;
+    border-radius:12px;
+    font-weight:700; font-size:14.5px;
+    border:none; cursor:pointer;
+  }
+  .qa-submit:hover{ background:var(--navy-mid); }
+  .qa-note{ font-size:12px; color:var(--ink-soft); margin-top:10px; }
+  .qa-status{ font-size:13px; margin-top:10px; font-weight:600; min-height:18px; }
+  .qa-status.ok{ color:#1f8b4c; }
+  .qa-status.err{ color:#c0392b; }
+
+  .board-title{
+    display:flex; align-items:center; justify-content:space-between;
+    margin:34px 0 14px;
+  }
+  .board-title h3{ margin:0; font-size:16px; color:var(--navy); }
+  .board-title span{ font-size:12px; color:var(--ink-soft); }
+  .qlist{ display:flex; flex-direction:column; gap:10px; }
+  .qitem{
+    background:var(--white); border:1px solid var(--sky-line); border-radius:14px;
+    padding:14px 16px; font-size:13.5px;
+  }
+  .qitem .who{ font-weight:700; color:var(--navy); font-size:12.5px; margin-bottom:4px; }
+  .qitem .when{ font-weight:400; color:var(--ink-soft); font-size:11px; margin-left:6px; }
+  .qitem .msg{ color:var(--ink); }
+  .empty{ color:var(--ink-soft); font-size:13px; text-align:center; padding:20px 0; }
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    text-align:center; padding:50px 20px 60px;
+    color:var(--navy-deep);
+  }
+  footer .fname{
+    font-family:'Noto Sans KR',sans-serif; font-size:22px; font-weight:700;
+    margin-bottom:6px;
+  }
+  footer .fsub{ font-size:12.5px; color:var(--ink-soft); }
+  footer .line{
+    width:40px; height:3px; background:var(--gold); margin:16px auto; border-radius:2px;
+  }
+
+  @media (max-width:520px){
+    .benefit-grid{ grid-template-columns:1fr; }
+    .card .body{ padding-left:20px; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    *{ transition:none !important; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="nav-brand"><span class="badge">2</span> 신윤영</div>
+    <div class="nav-links">
+      <a href="#p1">① 학생회 이벤트</a>
+      <a href="#p2">② 학교 편의</a>
+      <a href="#p3">③ 기네스북</a>
+      
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="pin">인천아라고등학교 전교회장선거 후보자</div>
+  <p class="hero-number">2<sub>번</sub></p>
+  <h1 class="hero-name">신&nbsp;&nbsp;윤&nbsp;&nbsp;영</h1>
+  <p class="hero-slogan">"학생들이 체감할 수 있는 변화를 만들겠습니다."</p>
+  <div class="hero-cta">
+    <a href="#p1" class="btn btn-gold">공약 자세히 보기</a>
+    
+  </div>
+</header>
+<svg class="wave" viewBox="0 0 1440 60" preserveAspectRatio="none" style="height:36px;">
+  <path d="M0,0 C360,60 1080,0 1440,40 L1440,0 L0,0 Z" fill="#0c1a33"></path>
+</svg>
+
+<main>
+
+  <!-- POLICY 1 -->
+  <section class="policy" id="p1">
+    <div class="sec-head">
+      <div class="sec-coin">1</div>
+      <div class="sec-title">
+        <h2>학생회 시즌 이벤트</h2>
+        <p>학기마다 학생들이 직접 즐기고 참여하는 학생회 행사를 만듭니다.</p>
+      </div>
+    </div>
+
+    <details class="card" open>
+      <summary><span class="icon">🏆</span> 반대항전 진행 <span class="chev">▾</span></summary>
+      <div class="body">
+        <ul>
+          <li>반별 대표 선수를 선발하여 학급 대항 스포츠 리그를 진행합니다.</li>
+          <li>남학생은 축구, 여학생은 발야구 종목으로 나누어 운영하며, 각 반의 대표 선수들이 참가합니다.</li>
+          <li>약 3주간 리그 및 토너먼트 방식으로 경기를 진행하여 우승 반을 결정합니다.</li>
+          <li>반 친구들이 함께 응원하며 단합할 수 있는 기회를 만들고, 우승 반에는 상품 또는 시상을 진행합니다.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="icon">🎁</span> 일일매점 운영 <span class="chev">▾</span></summary>
+      <div class="body">
+        <ul>
+          <li>하루를 지정하여 빈 교실을 대여한 뒤 점심시간 동안 학생회가 직접 일일매점을 운영합니다.</li>
+          <li>학생들이 선호하는 간식과 음료를 판매하여 점심시간에 즐길 수 있는 특별한 이벤트를 제공합니다.</li>
+          <li>판매 수익은 학생회 행사나 학교 복지 사업에 활용합니다.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="icon">🎟️</span> 럭키드로우 이벤트 <span class="chev">▾</span></summary>
+      <div class="body">
+        <ul>
+          <li>학교 행사나 학생회 이벤트에 참여한 학생들에게 추첨 기회를 제공합니다.</li>
+          <li>문구류, 간식, 문화상품권 등 다양한 경품을 준비하여 참여율을 높입니다.</li>
+          <li>누구나 공정하게 참여할 수 있도록 공개 추첨으로 진행합니다.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="icon">👕</span> 사복데이 <span class="chev">▾</span></summary>
+      <div class="body">
+        <ul>
+          <li>지정된 날짜에 교복 대신 단정한 사복을 착용할 수 있도록 학교와 협의합니다.</li>
+          <li>학생들의 개성을 존중하면서도 학교생활에 지장이 없는 복장을 기준으로 운영합니다.</li>
+          <li>특별한 학교 행사와 연계하여 더욱 즐겁게 참여할 수 있도록 합니다.</li>
+        </ul>
+      </div>
+    </details>
+  </section>
+
+  <!-- POLICY 2 -->
+  <section class="policy" id="p2">
+    <div class="sec-head">
+      <div class="sec-coin">2</div>
+      <div class="sec-title">
+        <h2>학교 편의 조성</h2>
+        <p>학생들의 목소리가 실제 학교 생활에 반영되도록 합니다.</p>
+      </div>
+    </div>
+
+    <details class="card" open>
+      <summary><span class="icon">🎲</span> 보드게임 대여제 <span class="chev">▾</span></summary>
+      <div class="body">
+        <ul>
+          <li>점심시간이나 쉬는 시간에 친구들과 함께 즐길 수 있도록 다양한 보드게임을 학교에서 대여하는 제도입니다.</li>
+          <li>루미큐브, 할리갈리, 다빈치 코드, 젠가 등 누구나 쉽게 즐길 수 있는 보드게임을 구비하고, 정해진 장소에서 학생증 확인 후 대여할 수 있도록 운영하겠습니다.</li>
+          <li>학생들의 의견을 받아 원하는 보드게임를 지속적으로 추가하여 더욱 다양한 놀이 문화를 만들겠습니다.</li>
+          <li>학업으로 지친 학교생활 속에서 친구들과 자연스럽게 소통하고 협동하며 즐길 수 있는 건강한 휴식 시간을 제공하는 것이 이 공약의 목표입니다.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="icon">💻</span> 온라인 행사 건의함 운영 <span class="chev">▾</span></summary>
+      <div class="body">
+        <ul>
+          <li>학생들이 학교 행사 아이디어를 언제든지 온라인으로 제안할 수 있는 창구를 운영합니다.</li>
+          <li>익명 제출도 가능하게 하여 부담 없이 의견을 낼 수 있도록 합니다.</li>
+          <li>접수된 의견은 학생회에서 검토한 후 학교와 협의하여 실제 행사에 반영될 수 있도록 노력하겠습니다.</li>
+        </ul>
+      </div>
+    </details>
+  </section>
+
+  <!-- POLICY 3 -->
+  <section class="policy" id="p3">
+    <div class="sec-head">
+      <div class="sec-coin">3</div>
+      <div class="sec-title">
+        <h2>아라고 교내 기네스북 운영</h2>
+        <p>학생들의 개성과 도전 정신을 마음껏 펼칠 수 있는 무대를 만듭니다.</p>
+      </div>
+    </div>
+
+    <div class="guinness-lead">
+      학생 누구나 건전한 범위 내에서 자신만의 기록을 사진 또는 영상 등 인증자료와 함께 신청할 수 있으며, 확인 절차를 거쳐 <b>학교에서 활용하지 않는 벽면이나 이동식 게시판</b>에 학생증 사진과 기록을 함께 게시하여 아라고만의 특별한 기록으로 남기겠습니다.
+      <br><br>
+      더욱 많은 학생들이 참여할 수 있도록 매월 <b>'이달의 기록'</b>을 진행합니다. 매달 새로운 기록 주제를 선정하여 약 일주일 동안 참가 신청을 받고, 가장 뛰어난 기록을 달성한 학생을 선정합니다.
+      <p style="font-size:12px; color:#bcd2ee; margin:14px 0 6px;">예를 들면 이런 주제로 진행할 수 있어요 (아래는 예시이며, 실제 주제는 매달 새롭게 선정됩니다):</p>
+      <div class="example-chip-row">
+        <span class="chip">🏃 (예시) 운동장 줄넘기 최다 기록</span>
+        <span class="chip">📚 (예시) 최다 독서 학생</span>
+        <span class="chip">🏀 (예시) 농구 자유투 최다 성공</span>
+      </div>
+    </div>
+
+    <details class="card">
+      <summary><span class="icon">🎁</span> 참여 혜택 <span class="chev">▾</span></summary>
+      <div class="body">
+        <div class="benefit-grid">
+          <div class="benefit"><span class="em">🏅</span>이달의 기네스 인증서 수여</div>
+          <div class="benefit"><span class="em">📸</span>학생회 공식 인스타그램 명예의 전당 등재</div>
+          <div class="benefit"><span class="em">🎁</span>우수 참여자 소정의 상품 증정</div>
+          <div class="benefit"><span class="em">🎖️</span>학기별 '아라고 기네스 챔피언' 선정</div>
+        </div>
+      </div>
+    </details>
+
+    <p style="font-size:13.5px;color:var(--ink-soft);padding:0 4px;">
+      단순히 기록을 게시하는 활동이 아니라, 학생들이 자신의 재능을 자랑하고 친구들과 함께 도전하며 추억을 만들 수 있는 아라고만의 참여형 학교 문화를 만들어 가겠습니다.
+    </p>
+  </section>
+
+  </main>
+
+<footer>
+  <div class="fname">기호 2번 신윤영</div>
+  <div class="fsub">인천아라고등학교 전교회장선거 후보자</div>
+  <div class="line"></div>
+</footer>
+
+</body>
+</html>
